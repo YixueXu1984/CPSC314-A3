@@ -91,7 +91,7 @@ var lightColor = new THREE.Color(1.0,1.0,1.0);
 var lightFogColor = new THREE.Color(0.5,0.5,0.5);
 var ambientColor = new THREE.Color(0.4,0.4,0.4);
 var lightDirection = new THREE.Vector3(0.49,0.79, 0.49);
-var spotlightPosition = new THREE.Vector3(0,7.0,0);
+var spotlightPosition = new THREE.Vector3(0.0,7.0,0.0);
 
 
 // Material properties
@@ -121,29 +121,75 @@ var spotDirectPosition = {type: 'v3', value: new THREE.Vector3(0.0,0.0,0.0)};
 var spotlightMaterial = new THREE.ShaderMaterial({
     uniforms: {
         // TODO: pass in the uniforms you need
+        lightColorUniform: lightColorUniform,
+        lightFogColorUniform: lightFogColorUniform,
+        ambientColorUniform: ambientColorUniform,
+        lightDirectionUniform: lightDirectionUniform,
+        spotlightPosition: spotlightPosition,
+        kAmbientUniform: kAmbientUniform,
+        kDiffuseUniform: kDiffuseUniform,
+        kSpecularUniform: kSpecularUniform,
+        shininessUniform: shininessUniform,
+        fogDensity: fogDensity
     }
 });
 
 var phongMaterial = new THREE.ShaderMaterial({
     uniforms: {
-
+        lightColorUniform: lightColorUniform,
+        lightFogColorUniform: lightFogColorUniform,
+        ambientColorUniform: ambientColorUniform,
+        lightDirectionUniform: lightDirectionUniform,
+        spotlightPosition: spotlightPosition,
+        kAmbientUniform: kAmbientUniform,
+        kDiffuseUniform: kDiffuseUniform,
+        kSpecularUniform: kSpecularUniform,
+        shininessUniform: shininessUniform,
+        fogDensity: fogDensity
     },
 });
 
 var bPhongMaterial = new THREE.ShaderMaterial({
     uniforms: {
-
+        lightColorUniform: lightColorUniform,
+        lightFogColorUniform: lightFogColorUniform,
+        ambientColorUniform: ambientColorUniform,
+        lightDirectionUniform: lightDirectionUniform,
+        spotlightPosition: spotlightPosition,
+        kAmbientUniform: kAmbientUniform,
+        kDiffuseUniform: kDiffuseUniform,
+        kSpecularUniform: kSpecularUniform,
+        shininessUniform: shininessUniform,
+        fogDensity: fogDensity
     },
 });
 var toonMaterial = new THREE.ShaderMaterial({
     uniforms: {
-
+        lightColorUniform: lightColorUniform,
+        lightFogColorUniform: lightFogColorUniform,
+        ambientColorUniform: ambientColorUniform,
+        lightDirectionUniform: lightDirectionUniform,
+        spotlightPosition: spotlightPosition,
+        kAmbientUniform: kAmbientUniform,
+        kDiffuseUniform: kDiffuseUniform,
+        kSpecularUniform: kSpecularUniform,
+        shininessUniform: shininessUniform,
+        fogDensity: fogDensity
     },
 });
 
 var fogMaterial = new THREE.ShaderMaterial({
     uniforms: {
-
+        lightColorUniform: lightColorUniform,
+        lightFogColorUniform: lightFogColorUniform,
+        ambientColorUniform: ambientColorUniform,
+        lightDirectionUniform: lightDirectionUniform,
+        spotlightPosition: spotlightPosition,
+        kAmbientUniform: kAmbientUniform,
+        kDiffuseUniform: kDiffuseUniform,
+        kSpecularUniform: kSpecularUniform,
+        shininessUniform: shininessUniform,
+        fogDensity: fogDensity
     },
 });
 
@@ -179,7 +225,7 @@ new THREE.SourceLoader().load(shaderFiles, function(shaders) {
 })
 
 var ctx = renderer.context;
-ctx.getShaderInfoLog = function () { return '' };   // stops shader warnings, seen in some browsers
+//ctx.getShaderInfoLog = function () { return '' };   // stops shader warnings, seen in some browsers
 
 function loadOBJ(mode, file, material, scale, xOff, yOff, zOff, xRot, yRot, zRot) {
     var onProgress = function(query) {
