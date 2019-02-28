@@ -306,6 +306,13 @@ toon = {};
 
 // TODO: load your objects here
 
+loadOBJ(Part.TOON,'obj/bunny.obj',toonMaterial,20,10,0,10,0,0,0);
+
+toon.cyld = new THREE.CylinderGeometry(1,1,2,16);
+toon.cb_toon = new THREE.Mesh(toon.cyld, toonMaterial);
+toon.cb_toon.position.set(5,0,5);
+scenes[Part.TOON].add(toon.cb_toon);
+
 toon.sphere = new THREE.SphereGeometry(1, 16, 16);
 toon.npr_toon = new THREE.Mesh(toon.sphere, toonMaterial);
 toon.npr_toon.position.set(0, 1, 1);

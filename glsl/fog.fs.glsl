@@ -41,7 +41,7 @@ void main() {
 
 
 	vec3 TOTAL = light_AMB + light_DFF ;
-	out_FragColor = mix(vec4(TOTAL, 1.0), vec4(lightFogColor, 1.0), 1.0 - fogLevel);
+	out_FragColor = mix( vec4(lightFogColor, 1.0),vec4(TOTAL, 1.0), fogLevel);
 
 	//out_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
 }
